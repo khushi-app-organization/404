@@ -10,9 +10,9 @@ const app = express();
 // Serve static assets (logo, etc.) from the public folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// Send the "Coming Soon" page for any route
+// Send the 404 page for any route
 app.use((req, res) => {
-    return res.status(200).sendFile(path.join(__dirname, "public", "index.html"));
+    return res.status(404).sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(2001, () => {

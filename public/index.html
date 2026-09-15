@@ -4,14 +4,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TourHelps &mdash; Coming Soon</title>
-    <meta name="description" content="TourHelps - Plan, Explore, Travel Your Way. Something amazing is on the way." />
+    <title>404 - Page Not Found &mdash; TourHelps</title>
+    <meta name="description" content="Oops! Looks like you've wandered off the map. Navigate back to TourHelps to continue planning, exploring, and traveling your way." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --blue: #12447e;
+            --blue-light: #1e5ba3;
+            --blue-soft: #e8f0fa;
             --green: #3fa93c;
+            --green-light: #4cc749;
+            --green-soft: #eaf6ec;
             --ink: #1b2a3a;
             --muted: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.82);
+            --border-glass: rgba(255, 255, 255, 0.7);
         }
 
         * {
@@ -22,213 +34,311 @@
 
         html,
         body {
-            height: 100%;
+            min-height: 100%;
         }
 
         body {
-            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-            background: radial-gradient(1200px 600px at 50% -10%, #eaf6ec 0%, #f4f8fb 45%, #eef2f7 100%);
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: radial-gradient(1200px 700px at 50% -10%, #eaf6ec 0%, #f4f8fb 45%, #edf3f8 100%);
             color: var(--ink);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 28px 20px;
             overflow-x: hidden;
+            position: relative;
         }
 
+        /* Ambient Glow Blobs */
         .bg-blob {
             position: fixed;
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.35;
+            filter: blur(70px);
+            opacity: 0.38;
             z-index: 0;
             pointer-events: none;
+            transition: transform 0.5s ease-out;
         }
 
         .bg-blob.green {
-            width: 480px;
-            height: 480px;
+            width: 500px;
+            height: 500px;
             background: #7ed957;
-            top: -160px;
+            top: -140px;
             left: -120px;
         }
 
         .bg-blob.blue {
-            width: 520px;
-            height: 520px;
+            width: 540px;
+            height: 540px;
             background: #4a90e2;
-            bottom: -200px;
-            right: -160px;
+            bottom: -180px;
+            right: -140px;
         }
 
+        .bg-blob.accent {
+            width: 320px;
+            height: 320px;
+            background: #b5e853;
+            top: 40%;
+            left: 70%;
+            opacity: 0.22;
+        }
+
+        /* Glassmorphism Card Container */
         .card {
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 720px;
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 28px;
-            box-shadow: 0 30px 60px -20px rgba(18, 68, 126, 0.25);
-            padding: 56px 40px 48px;
+            max-width: 760px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            box-shadow: 
+                0 30px 70px -15px rgba(18, 68, 126, 0.18),
+                0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            padding: 48px 44px 40px;
             text-align: center;
-            animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+            animation: rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         @keyframes rise {
             from {
                 opacity: 0;
-                transform: translateY(24px);
+                transform: translateY(28px) scale(0.98);
             }
-
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
+        }
+
+        /* Brand Logo */
+        .logo-wrapper {
+            margin: 0 auto 20px;
+            display: inline-block;
         }
 
         .logo {
             width: 100%;
-            max-width: 360px;
+            max-width: 340px;
             height: auto;
-            margin: 0 auto 28px;
+            margin: 0 auto;
             display: block;
-            animation: float 5s ease-in-out infinite;
+            animation: float 5.5s ease-in-out infinite;
+            filter: drop-shadow(0 8px 16px rgba(18, 68, 126, 0.08));
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
-                transform: translateY(-8px);
+                transform: translateY(-7px);
             }
         }
 
+        /* 404 Creative Display */
+        .error-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 12px 0 16px;
+            user-select: none;
+        }
+
+        .digit {
+            font-size: clamp(68px, 12vw, 100px);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--blue) 20%, var(--green) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 25px rgba(18, 68, 126, 0.12);
+        }
+
+        /* Compass Visual for the "0" */
+        .compass-center {
+            position: relative;
+            width: clamp(64px, 11vw, 92px);
+            height: clamp(64px, 11vw, 92px);
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ffffff, #f0f7ff);
+            box-shadow:
+                0 10px 25px -4px rgba(18, 68, 126, 0.2),
+                0 0 0 4px rgba(63, 169, 60, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(18, 68, 126, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .compass-center:hover {
+            transform: scale(1.08) rotate(15deg);
+        }
+
+        .compass-dial {
+            position: absolute;
+            inset: 6px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(18, 68, 126, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slowRotate 24s linear infinite;
+        }
+
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .compass-points {
+            position: absolute;
+            font-size: 8px;
+            font-weight: 800;
+            color: var(--blue);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 0;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .compass-needle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: compassSway 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes compassSway {
+            0% { transform: rotate(-25deg); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(-10deg); }
+        }
+
+        .needle-north {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 24px solid #e53e3e;
+            transform: translateY(-12px);
+            filter: drop-shadow(0 2px 3px rgba(229, 62, 62, 0.3));
+        }
+
+        .needle-south {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 24px solid var(--blue);
+            transform: translateY(12px);
+        }
+
+        .compass-pin {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border: 2.5px solid var(--blue);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* Badge */
         .badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
             font-size: 12px;
-            letter-spacing: 2px;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
             font-weight: 700;
             color: var(--green);
             background: rgba(63, 169, 60, 0.12);
-            padding: 7px 16px;
+            padding: 7px 18px;
             border-radius: 999px;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(63, 169, 60, 0.2);
         }
 
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 0 3px rgba(63, 169, 60, 0.25);
+            animation: pulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.75); }
+        }
+
+        /* Typography */
         h1 {
-            font-size: clamp(30px, 6vw, 48px);
-            line-height: 1.1;
+            font-size: clamp(24px, 5vw, 34px);
+            line-height: 1.25;
             font-weight: 800;
+            color: var(--ink);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span.highlight {
             background: linear-gradient(90deg, var(--blue), var(--green));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
         }
 
         p.lead {
-            font-size: clamp(15px, 2.5vw, 18px);
+            font-size: clamp(14px, 2.2vw, 16.5px);
             color: var(--muted);
-            max-width: 480px;
+            max-width: 520px;
             margin: 0 auto 32px;
-            line-height: 1.6;
+            line-height: 1.65;
+            font-weight: 400;
         }
 
-        .progress {
-            width: 100%;
-            max-width: 420px;
-            height: 8px;
-            margin: 0 auto 28px;
-            background: rgba(18, 68, 126, 0.1);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .progress span {
-            display: block;
-            height: 100%;
-            width: 100%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--blue), var(--green));
-            animation: fill 2.4s ease-out both;
-        }
-
-        @keyframes fill {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 100%;
-            }
-        }
-
-        .launching {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--green);
-            margin: 0 auto 22px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .launching .dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--green);
-            animation: pulse 1.4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.35;
-                transform: scale(0.7);
-            }
-        }
-
+        /* Brand Tagline */
         .tagline {
             font-size: 13px;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--blue);
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
-        .powered {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .powered strong {
-            color: var(--ink);
-        }
-
+        /* Contact Section */
         .contact {
-            margin-top: 28px;
-            padding-top: 22px;
+            padding-top: 20px;
             border-top: 1px solid rgba(18, 68, 126, 0.1);
         }
 
         .contact-label {
             font-size: 12px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 700;
             color: var(--muted);
@@ -238,64 +348,134 @@
         .contact-email {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
-            font-size: clamp(15px, 3vw, 18px);
+            gap: 8px;
+            font-size: clamp(14px, 2.5vw, 16px);
             font-weight: 700;
             text-decoration: none;
             color: var(--blue);
-            padding: 10px 20px;
+            padding: 9px 20px;
             border-radius: 999px;
             background: rgba(63, 169, 60, 0.1);
-            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+            border: 1px solid rgba(63, 169, 60, 0.18);
+            transition: all 0.2s ease;
         }
 
         .contact-email:hover {
             transform: translateY(-2px);
             background: linear-gradient(90deg, var(--blue), var(--green));
-            color: #fff;
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 8px 18px -4px rgba(18, 68, 126, 0.25);
         }
 
         .contact-email svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
         }
 
-        @media (max-width: 480px) {
+        /* Responsive Breakpoints */
+        @media (max-width: 580px) {
             .card {
-                padding: 40px 22px 36px;
+                padding: 36px 20px 28px;
+                border-radius: 24px;
+            }
+
+            .logo {
+                max-width: 280px;
+            }
+
+            .error-container {
+                gap: 8px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="bg-blob green"></div>
-    <div class="bg-blob blue"></div>
+    <!-- Background glowing ambient orbs -->
+    <div class="bg-blob green" aria-hidden="true"></div>
+    <div class="bg-blob blue" aria-hidden="true"></div>
+    <div class="bg-blob accent" aria-hidden="true"></div>
 
-    <main class="card">
-        <img class="logo" src="/image.png" alt="TourHelps logo" />
-        <span class="badge">Coming Soon</span>
-        <h1>Something great is on the way</h1>
+    <main class="card" role="main">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+            <a href="/" title="TourHelps Home">
+                <img class="logo" src="/image.png" alt="TourHelps - Plan, Explore, Travel Your Way - Powered by Saha Taxi" />
+            </a>
+        </div>
+
+        <!-- Badge -->
+        <div>
+            <span class="badge" id="error-badge">
+                <span class="badge-dot"></span>
+                Error 404 &bull; Off The Roadmap
+            </span>
+        </div>
+
+        <!-- Visual 404 with Interactive Compass '0' -->
+        <div class="error-container" aria-label="Error code 404">
+            <span class="digit">4</span>
+            <div class="compass-center" id="interactive-compass" title="Click to spin the compass needle!">
+                <div class="compass-dial">
+                    <div class="compass-points">
+                        <span>N</span>
+                        <span>S</span>
+                    </div>
+                </div>
+                <div class="compass-needle" id="compass-needle">
+                    <div class="needle-north"></div>
+                    <div class="needle-south"></div>
+                </div>
+                <div class="compass-pin"></div>
+            </div>
+            <span class="digit">4</span>
+        </div>
+
+        <!-- Headline & Description -->
+        <h1>Looks Like You've <span class="highlight">Taken A Detour</span></h1>
         <p class="lead">
-            We're putting the finishing touches on your new travel companion.
-            Plan your trips, explore new places, and travel your way &mdash; very soon.
+            The destination you're looking for isn't on our map &mdash; it may have been moved, renamed, or never existed. Let's get you back on course.
         </p>
-        <div class="progress"><span></span></div>
-        <div class="launching"><span class="dot"></span> Launching soon</div>
-        <div class="tagline">Plan &bull; Explore &bull; Travel Your Way</div>
-        <!-- <div class="powered">Powered by <strong>Saha Taxi</strong></div> -->
 
+
+        <!-- Brand Tagline -->
+        <div class="tagline">Plan &bull; Explore &bull; Travel Your Way</div>
+
+        <!-- Contact Support -->
         <div class="contact">
-            <div class="contact-label">Contact us</div>
-            <a class="contact-email" href="mailto:help@tourhelps.com">
+            <div class="contact-label">Need guidance or assistance?</div>
+            <a class="contact-email" id="contact-email-link" href="mailto:help@tourhelps.com">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                     <path d="m22 6-10 7L2 6"></path>
                 </svg>
-                help@tourhelps.com
+                <span>help@tourhelps.com</span>
             </a>
         </div>
     </main>
+
+    <!-- Interactive script for compass spin & navigation -->
+    <script>
+        // Fun interactive compass interaction
+        const compass = document.getElementById('interactive-compass');
+        const needle = document.getElementById('compass-needle');
+        let currentRotation = 0;
+
+        if (compass && needle) {
+            compass.addEventListener('click', () => {
+                currentRotation += (360 * 2) + Math.floor(Math.random() * 180) - 90;
+                needle.style.animation = 'none';
+                needle.style.transition = 'transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                needle.style.transform = `rotate(${currentRotation}deg)`;
+
+                setTimeout(() => {
+                    needle.style.transition = '';
+                    needle.style.animation = 'compassSway 4s ease-in-out infinite alternate';
+                }, 1300);
+            });
+        }
+    </script>
 </body>
 
 </html>
