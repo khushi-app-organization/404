@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourHelps &mdash; Coming Soon</title>
+    <meta name="description" content="TourHelps - Plan, Explore, Travel Your Way. Something amazing is on the way." />
+    <style>
+        :root {
+            --blue: #12447e;
+            --green: #3fa93c;
+            --ink: #1b2a3a;
+            --muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(1200px 600px at 50% -10%, #eaf6ec 0%, #f4f8fb 45%, #eef2f7 100%);
+            color: var(--ink);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-x: hidden;
+        }
+
+        .bg-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.35;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-blob.green {
+            width: 480px;
+            height: 480px;
+            background: #7ed957;
+            top: -160px;
+            left: -120px;
+        }
+
+        .bg-blob.blue {
+            width: 520px;
+            height: 520px;
+            background: #4a90e2;
+            bottom: -200px;
+            right: -160px;
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 720px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 28px;
+            box-shadow: 0 30px 60px -20px rgba(18, 68, 126, 0.25);
+            padding: 56px 40px 48px;
+            text-align: center;
+            animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            margin: 0 auto 28px;
+            display: block;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--green);
+            background: rgba(63, 169, 60, 0.12);
+            padding: 7px 16px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(30px, 6vw, 48px);
+            line-height: 1.1;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+
+        p.lead {
+            font-size: clamp(15px, 2.5vw, 18px);
+            color: var(--muted);
+            max-width: 480px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        .progress {
+            width: 100%;
+            max-width: 420px;
+            height: 8px;
+            margin: 0 auto 28px;
+            background: rgba(18, 68, 126, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            animation: fill 2.4s ease-out both;
+        }
+
+        @keyframes fill {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .launching {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green);
+            margin: 0 auto 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .launching .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.35;
+                transform: scale(0.7);
+            }
+        }
+
+        .tagline {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .powered {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .powered strong {
+            color: var(--ink);
+        }
+
+        .contact {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(18, 68, 126, 0.1);
+        }
+
+        .contact-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-size: clamp(15px, 3vw, 18px);
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--blue);
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: rgba(63, 169, 60, 0.1);
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            color: #fff;
+        }
+
+        .contact-email svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 40px 22px 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blob green"></div>
+    <div class="bg-blob blue"></div>
+
+    <main class="card">
+        <img class="logo" src="/image.png" alt="TourHelps logo" />
+        <span class="badge">Coming Soon</span>
+        <h1>Something great is on the way</h1>
+        <p class="lead">
+            We're putting the finishing touches on your new travel companion.
+            Plan your trips, explore new places, and travel your way &mdash; very soon.
+        </p>
+        <div class="progress"><span></span></div>
+        <div class="launching"><span class="dot"></span> Launching soon</div>
+        <div class="tagline">Plan &bull; Explore &bull; Travel Your Way</div>
+        <!-- <div class="powered">Powered by <strong>Saha Taxi</strong></div> -->
+
+        <div class="contact">
+            <div class="contact-label">Contact us</div>
+            <a class="contact-email" href="mailto:help@tourhelps.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 6-10 7L2 6"></path>
+                </svg>
+                help@tourhelps.com
+            </a>
+        </div>
+    </main>
+</body>
+
+</html>
