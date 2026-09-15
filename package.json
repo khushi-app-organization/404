@@ -1,0 +1,24 @@
+{
+    "name": "404",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/khushi-app-organization/404#readme",
+    "bugs": {
+        "url": "https://github.com/khushi-app-organization/404/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/khushi-app-organization/404.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^5.2.1"
+    }
+}
